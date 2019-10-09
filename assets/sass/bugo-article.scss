@@ -1,8 +1,12 @@
 /**
- * BUGO RECENT POSTS
+ * BUGO ARTICLE
  **/
 
 @import "bugo-article-vars";
+
+@debug "Loading Bugo Article Module SASS";
+@import "custom-variables";
+
 
 article {
   @include space-element-x(margin, $article-margin-left, $article-margin-right);
