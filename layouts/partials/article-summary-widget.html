@@ -19,6 +19,6 @@
   </p>
   {{ partial "components/thumbnail" . }}
   <div class="summary">
-    {{ .Page.Summary | markdownify }}
+    {{ .Page.Summary | markdownify  | truncate 120 }}
   </div>
 </article>
