@@ -1,8 +1,8 @@
 <article class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}" tabindex="0">
   <header>
       <h3><a href="{{ .Page.Permalink | relURL }}">{{ .Page.Title | markdownify }}</a></h3>
-  </header>
-  <time>{{ .Date.Format "January _2, 2006" }}</time>
+      <time>{{ .Date.Format "January _2, 2006" }}</time>
+    </header>
   <p class="taxonomy">
     {{ with .Params.categories }}
       {{ range . }}
@@ -19,6 +19,6 @@
   </p>
   {{ partial "components/thumbnail" . }}
   <div class="summary">
-    {{ .Page.Summary | markdownify | truncate .Site.Params.summaryLength }}
+    {{ .Content | plainify | truncate 500 }}
   </div>
 </article>
