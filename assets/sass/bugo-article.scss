@@ -14,6 +14,11 @@ article {
   @include space-element-x(padding, $article-padding-left, $article-padding-right);
   @include space-element-y(padding, $article-padding-top, $article-padding-bottom);
 
+  header {
+    h1,h2,h3,h4,h5,h6 {
+      margin-top: 0;
+    }
+  }
 
   .content {
     img {
@@ -69,5 +74,15 @@ article {
   .summary {
     grid-area: summ;
     @include ms-respond(margin-top, $summary-summary-margin-top);
+  }
+}
+
+.recent-posts {
+  display: flex;
+  margin-left: -#{ms(1)};
+  margin-right: -#{ms(1)};
+  .article-summary {
+    flex: 1 1 0%;
+    @include set-padding(false,1,false,1);
   }
 }
