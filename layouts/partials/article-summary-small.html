@@ -1,7 +1,7 @@
-<article class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}" tabindex="0">
+<article class="article-summary article-summary-small {{ if .Params.images }} has-thumbnail {{ end }}" tabindex="0">
   <header>
-    <h3><a href="{{ .Page.Permalink | relURL }}">{{ .Page.Title | markdownify }}</a></h3>
     <time>{{ .Date.Format "January _2, 2006" }}</time>
+    <h3 class="h3"><a href="{{ .Page.Permalink | relURL }}">{{ .Page.Title | markdownify }}</a></h3>
   </header>
   <div class="summary">
     {{ .Content | plainify | truncate 120 }}

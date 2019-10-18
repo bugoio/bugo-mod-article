@@ -1,14 +1,8 @@
 <article class="main-article">
   <header>
+    <time>{{ .Date.Format "January _2, 2006" }}</time>
     <h1>{{ .Title | markdownify }}</h1>
   </header>
-  {{ if eq .Site.Data.config.media.default_featured_image.show_featured_image_in_content true }}
-  {{ partial "components/thumbnail" . }}
-  {{end}}
-  {{ if .Page.Params.show_slideshow }}
-  {{ partial "components/slideshow" . }}
-  {{ end }}
-
   <div class="content">
     {{ .Content }}
   </div>
