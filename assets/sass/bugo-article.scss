@@ -14,6 +14,8 @@ article {
   @include space-element-x(padding, $article-padding-left, $article-padding-right);
   @include space-element-y(padding, $article-padding-top, $article-padding-bottom);
 
+
+
   header {
     h1,h2,h3,h4,h5,h6 {
       margin-top: 0;
@@ -30,13 +32,6 @@ article {
 }
 
 .taxonomy {
-  grid-area: tax;
-  margin: 0;
-  .tags {
-    a {
-      background: lighten($dark, 20%);
-    }
-  }
 }
 
 .article-summary {
@@ -77,12 +72,20 @@ article {
   }
 }
 
-.recent-posts {
-  display: flex;
-  margin-left: -#{ms(1)};
-  margin-right: -#{ms(1)};
-  .article-summary {
-    flex: 1 1 0%;
-    @include set-padding(false,1,false,1);
+.recent-posts,
+.recent-articles {
+  > h2,h3,h4,h5,h6 {
+  }
+
+  .articles {
+    display: flex;
+    margin-left: -#{ms($global-padding)};
+    margin-right: -#{ms($global-padding)};
+
+    .article-summary {
+      flex: 1 1 0%;
+      padding-left: #{ms($global-padding)};
+      padding-right: #{ms($global-padding)};
+    }
   }
 }
