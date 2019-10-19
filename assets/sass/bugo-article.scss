@@ -43,22 +43,23 @@ article {
   // @include ms-respond(margin-bottom,$global-margin * 2);
 
 
-  display: grid;
+  display: flex;
+  flex-direction: column;
   // Generate Responsive Grid
-  @include responsive-property($summary-template-areas, "grid-template-areas");
-  @include responsive-property($summary-template-columns, "grid-template-columns");
-  @include grid-gaps($summary-column-gap, $summary-row-gap);
+  // @include responsive-property($summary-template-areas, "grid-template-areas");
+  // @include responsive-property($summary-template-columns, "grid-template-columns");
+  // @include grid-gaps($summary-column-gap, $summary-row-gap);
 
   header {
     grid-area: head;
 
     h3 {
-      margin-top: $summary-header-margin;
+      margin-bottom: 0;
     }
   }
 
   time {
-    grid-area: time;
+    // grid-area: time;
   }
 
   .thumbnail {
@@ -68,7 +69,29 @@ article {
 
   .summary {
     grid-area: summ;
-    @include ms-respond(margin-top, $summary-summary-margin-top);
+    // @include ms-respond(margin-top, $summary-summary-margin-top);
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.article-summary.article-summary-large {
+  display: flex;
+  flex-direction: row;
+  margin-left: -#{ms($global-padding)};
+  margin-right: -#{ms($global-padding)};
+  margin-bottom: #{ms($global-margin)};
+  padding-bottom: #{ms($global-margin)};
+
+  > * {
+    flex: 1 1 75%;
+    padding-left: #{ms($global-padding)};
+    padding-right: #{ms($global-padding)};
+
+    &:first-child {
+      flex-basis: 25%;
+    }
   }
 }
 
