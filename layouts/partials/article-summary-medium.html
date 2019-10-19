@@ -2,16 +2,18 @@
   class="article-summary article-summary-medium {{ if .Params.images }} has-thumbnail {{end}}"
   tabindex="0"
 >
-  <header>
-    <h3 class="h2">
-      <a
-        href="{{ .Page.Permalink | relURL }}"
-        >{{ .Page.Title | markdownify }}</a
-      >
-    </h3>
-    <time>{{ .Date.Format "January _2, 2006" }}</time>
-  </header>
+  {{ partial "thumbnail" . }}
   <div class="summary">
+    <header>
+      <h3 class="h2">
+        <a
+          href="{{ .Page.Permalink | relURL }}"
+          >{{ .Page.Title | markdownify }}</a
+        >
+      </h3>
+      <time>{{ .Date.Format "January _2, 2006" }}</time>
+    </header>
+    {{ partial "article-taxonomy" . }}
     {{ .Summary }}
   </div>
 </article>
