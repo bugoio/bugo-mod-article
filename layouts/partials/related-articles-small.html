@@ -2,8 +2,8 @@
 {{ with $posts }}
 <div class="widget widget-related-posts">
   <h4>Related Articles</h4>
-    {{ range first 3 . }}
-    {{ partial "article-summary-small" . }}
-    {{ end }}
+  {{ range first 3 . }}
+  {{ partial "article-summary-small" . }}
+  {{ end }}
 </div>
 {{ end }}

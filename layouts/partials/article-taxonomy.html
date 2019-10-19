@@ -1,0 +1,14 @@
+<p class="taxonomy">
+  {{ with .Params.categories }}
+    {{ range . }}
+      <a class="" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  {{ end }}
+  {{ with .Params.tags }}
+    <span class="tags">
+      {{ range . }}
+        <a class="" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </span>
+  {{ end }}
+</p>

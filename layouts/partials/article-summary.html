@@ -1,24 +1,19 @@
-<article class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}" tabindex="0">
+<article
+  class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}"
+  tabindex="0"
+>
   <header>
-      <time>{{ .Date.Format "January _2, 2006" }}</time>
-      <h3><a href="{{ .Page.Permalink | relURL }}">{{ .Page.Title | markdownify }}</a></h3>
-    </header>
-  <p class="taxonomy">
-    {{ with .Params.categories }}
-      {{ range . }}
-        <a class="button button-sm" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
-    {{ end }}
-    {{ with .Params.tags }}
-      <span class="tags">
-        {{ range . }}
-          <a class="button button-xs" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
-      </span>
-    {{ end }}
-  </p>
+    <time>{{ .Date.Format "January _2, 2006" }}</time>
+    <h3>
+      <a
+        href="{{ .Page.Permalink | relURL }}"
+        >{{ .Page.Title | markdownify }}</a
+      >
+    </h3>
+  </header>
+  {{ partial "article-taxonomy" . }}
   {{ partial "thumbnail" . }}
   <div class="summary">
-    {{ .Content | plainify | truncate 500 }}
+    {{ .Summary }}
   </div>
 </article>
