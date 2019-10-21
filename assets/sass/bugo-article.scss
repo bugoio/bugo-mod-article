@@ -79,8 +79,8 @@ article {
 .article-summary.article-summary-large {
   display: flex;
   flex-direction: row;
-  margin-left: -#{ms($global-padding)};
   margin-right: -#{ms($global-padding)};
+  margin-left: -#{ms($global-padding)};
   margin-bottom: #{ms($global-margin)};
   padding-bottom: #{ms($global-margin)};
 
@@ -97,18 +97,12 @@ article {
 
 .recent-posts,
 .recent-articles {
-  > h2,h3,h4,h5,h6 {
-  }
+  margin-right: -#{ms($global-padding)};
+  margin-left: -#{ms($global-padding)};
 
-  .articles {
-    display: flex;
-    margin-left: -#{ms($global-padding)};
-    margin-right: -#{ms($global-padding)};
-
-    .article-summary {
-      flex: 1 1 0%;
-      padding-left: #{ms($global-padding)};
-      padding-right: #{ms($global-padding)};
-    }
+  .article-summary {
+    flex: 1 1 0%;
+    padding-left: #{ms($global-padding)};
+    padding-right: #{ms($global-padding)};
   }
 }
