@@ -1,12 +1,14 @@
 /**
  * BUGO ARTICLE
  **/
-
+// Variables
 @import "bugo-article-vars";
-
 @debug "Loading Bugo Article Module SASS";
-@import "custom-variables";
 
+
+/**
+ * ARTICLE ELEMENT
+ **/
 
 article {
   @include space-element-x(margin, $article-margin-left, $article-margin-right);
@@ -31,24 +33,67 @@ article {
   }
 }
 
-.taxonomy {
+
+/**
+ * ARTCILE TAXONOMY SECTION
+ **/
+
+.tax-section {
+  background-color: $accent1;
+  @include set-padding($global-padding,$global-padding,$global-padding,$global-padding);
+  margin-bottom: 2rem;
+
+  h1,h2,h3,h4,h5,h6,
+  .h1,.h2,.h3,.h4,.h5,.h6 {
+    margin-top: 0;
+  }
+
+
+  &:nth-child(even) {
+    background-color: $accent2;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  .thumbnail {
+    display: none;
+  }
+
+  .term-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    > :nth-child(2) {
+      min-width: 2rem;
+    }
+
+    .bugo-icon {
+      width: 2rem;
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
+
+
+/**
+ * ARTICLE SUMMARY - DEFAULT
+ **/
 
 .article-summary {
   @include space-element-x(margin, $summary-margin-left, $summary-margin-right);
   @include space-element-y(margin, $summary-margin-top, $summary-margin-bottom);
   @include space-element-x(padding, $summary-padding-left, $summary-padding-right);
   @include space-element-y(padding, $summary-padding-top, $summary-padding-bottom);
-  // @include ms-respond(margin-top,$global-margin * 2);
-  // @include ms-respond(margin-bottom,$global-margin * 2);
 
 
   display: flex;
   flex-direction: column;
-  // Generate Responsive Grid
-  // @include responsive-property($summary-template-areas, "grid-template-areas");
-  // @include responsive-property($summary-template-columns, "grid-template-columns");
-  // @include grid-gaps($summary-column-gap, $summary-row-gap);
 
   header {
     grid-area: head;
@@ -77,11 +122,15 @@ article {
   }
 }
 
+/**
+ * ARTCILE SUMMARY - LARGE
+ **/
+
 .article-summary.article-summary-large {
   display: flex;
   flex-direction: row;
-  margin-right: -#{ms($global-padding)};
-  margin-left: -#{ms($global-padding)};
+  // margin-right: -#{ms($global-padding)};
+  // margin-left: -#{ms($global-padding)};
   margin-bottom: #{ms($global-margin)};
   padding-bottom: #{ms($global-margin)};
 
@@ -96,14 +145,82 @@ article {
   }
 }
 
+/**
+ * ARTICLE CONTAINERS
+ **/
+
 .recent-posts,
 .recent-articles {
-  margin-right: -#{ms($global-padding)};
-  margin-left: -#{ms($global-padding)};
+  .articles {
+    @include make-columns();
+  }
 
   .article-summary {
     flex: 1 1 0%;
-    padding-left: #{ms($global-padding)};
-    padding-right: #{ms($global-padding)};
+  }
+}
+
+/**
+ * ARTICLE EDITORIAL LAYOUT
+ **/
+
+.articles-editorial {
+  @include make-columns();
+  flex-wrap: wrap;
+
+  &.show-thumbnails {
+    .article-summary {
+      .thumbnail {
+        display: block !important;
+        flex-basis: 50%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .article-summary {
+    display: flex;
+    flex: 1 1;
+    flex-basis: 50%;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+
+    &:first-child {
+      h3 {
+        @extend .d4;
+      }
+    }
+
+    .thumbnail {
+      display: none;
+      flex-basis: 50% !important;
+    }
+
+    .summary {
+      flex-basis: 66%;
+    }
+
+    &.has-thumbnail {
+      display: flex;
+    }
+  }
+
+  .article-summary-large {
+    flex-basis: 100% !important;
+
+    .thumbnail {
+      flex-basis: 50%;
+    }
+  }
+
+  .article-summary-small {
+    flex-basis: 50%;
+  }
+
+  .article-summary-tiny {
+    flex-basis: 20%;
   }
 }
