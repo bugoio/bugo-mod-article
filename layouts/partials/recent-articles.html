@@ -2,8 +2,8 @@
 {{ with $posts }}
 <div class="widget widget-recent-posts">
   <h4 class="h5">Recent Posts</h4>
-    {{ range first 3 . }}
-    {{ partial "article-summary-widget" . }}
-    {{ end }}
+  {{ range first 3 . }}
+  {{ partial "article-summary-widget" . }}
+  {{ end }}
 </div>
 {{ end }}
