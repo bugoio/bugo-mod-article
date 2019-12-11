@@ -91,10 +91,6 @@ article {
   @include space-element-x(padding, $summary-padding-left, $summary-padding-right);
   @include space-element-y(padding, $summary-padding-top, $summary-padding-bottom);
 
-
-  display: flex;
-  flex-direction: column;
-
   header {
     grid-area: head;
 
@@ -102,10 +98,6 @@ article {
       margin-top: 0;
       margin-bottom: 0;
     }
-  }
-
-  time {
-    // grid-area: time;
   }
 
   .thumbnail {
@@ -129,15 +121,11 @@ article {
 .article-summary.article-summary-large {
   display: flex;
   flex-direction: row;
-  // margin-right: -#{ms($global-padding)};
-  // margin-left: -#{ms($global-padding)};
-  margin-bottom: #{ms($global-margin)};
-  padding-bottom: #{ms($global-margin)};
+  @include ms-respond(margin-bottom,$global-margin);
+  @include ms-respond(padding-bottom,$global-margin);
 
   > * {
     flex: 1 1 75%;
-    padding-left: #{ms($global-padding)};
-    padding-right: #{ms($global-padding)};
 
     &:first-child {
       flex-basis: 25%;
@@ -151,13 +139,7 @@ article {
 
 .recent-posts,
 .recent-articles {
-  .articles {
-    @include make-columns();
-  }
-
-  .article-summary {
-    flex: 1 1 0%;
-  }
+  @include make-columns();
 }
 
 /**
@@ -165,8 +147,14 @@ article {
  **/
 
 .articles-editorial {
-  @include make-columns();
-  flex-wrap: wrap;
+  // @include make-columns();
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "a1 a1 a1 a1 a1 a1"
+  "a2 a2 a3 a3 a4 a4"
+  "a5 a6 a7 a8 a9 a10";
+  @include ms-respond(grid-gap,$global-padding);
 
   &.show-thumbnails {
     .article-summary {
@@ -180,47 +168,45 @@ article {
     }
   }
 
+
+
   .article-summary {
+    padding: $global-padding;
     display: flex;
-    flex: 1 1;
+    flex: 0 0;
     flex-basis: 50%;
     flex-wrap: nowrap;
     flex-direction: row;
 
-
-    &:first-child {
-      h3 {
-        @extend .d4;
-      }
+    &:nth-child(1) {
+      grid-area: a1;
     }
-
-    .thumbnail {
-      display: none;
-      flex-basis: 50% !important;
+    &:nth-child(2) {
+      grid-area: a2;
     }
-
-    .summary {
-      flex-basis: 66%;
+    &:nth-child(3) {
+      grid-area: a3;
     }
-
-    &.has-thumbnail {
-      display: flex;
+    &:nth-child(4) {
+      grid-area: a4;
     }
-  }
-
-  .article-summary-large {
-    flex-basis: 100% !important;
-
-    .thumbnail {
-      flex-basis: 50%;
+    &:nth-child(5) {
+      grid-area: a5;
     }
-  }
-
-  .article-summary-small {
-    flex-basis: 50%;
-  }
-
-  .article-summary-tiny {
-    flex-basis: 20%;
+    &:nth-child(6) {
+      grid-area: a6;
+    }
+    &:nth-child(7) {
+      grid-area: a7;
+    }
+    &:nth-child(8) {
+      grid-area: a8;
+    }
+    &:nth-child(9) {
+      grid-area: a9;
+    }
+    &:nth-child(10) {
+      grid-area: a10;
+    }
   }
 }
