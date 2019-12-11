@@ -1,0 +1,8 @@
+<a class="article" href="{{ .Permalink }}">
+  {{ partial "thumbnail" . }}
+  <p class="time">{{ .Date.Format "January _2, 2006" }}</p>
+  <p class="h2">{{ .Page.Title | markdownify }}</p>
+  <p class="summary-text" aria-hidden="true">
+    {{ .Summary }}
+  </p>
+</a>

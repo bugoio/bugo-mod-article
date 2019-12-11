@@ -14,6 +14,8 @@
       <time>{{ .Date.Format "January _2, 2006" }}</time>
     </header>
     {{ partial "article-taxonomy" . }}
-    {{ .Summary }}
+    <div class="summary-text">
+      {{ .Summary }}
+    </div>
   </div>
 </article>
