@@ -1,8 +1,10 @@
-<a class="article" href="{{ .Permalink }}">
-  {{ partial "thumbnail" . }}
-  <p class="time">{{ .Date.Format "January _2, 2006" }}</p>
-  <p class="h2">{{ .Page.Title | markdownify }}</p>
-  <p class="summary-text" aria-hidden="true">
-    {{ .Summary }}
-  </p>
+<a class="article article-summary-link {{- if .Page.Params.images }} has-thumbnail {{ end -}}" href="{{ .Permalink }}" tabindex="0">
+  <span>
+    {{ partial "thumbnail" . }}
+    <p class="h2">{{ .Page.Title }}</p>
+    <p class="time">{{ .Date.Format "January _2, 2006" }}</p>
+    <p class="summary-text">
+      {{ .Summary }}
+    </p>
+  </span>
 </a>
