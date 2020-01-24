@@ -1,6 +1,8 @@
 <article
   class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}"
   tabindex="0"
+  role="article"
+
 >
   {{ partial "thumbnail" . }}
   <div class="summary">
@@ -9,11 +11,13 @@
       <h3>
         <a
           href="{{ .Page.Permalink | relURL }}"
-          >{{ .Page.Title | markdownify }}</a
+          >{{ .Page.Title }}</a
         >
       </h3>
     </header>
     {{ partial "article-taxonomy" . }}
-    {{ .Summary }}
+    <p class="summary-text">
+      {{ .Summary }}
+    </p>
   </div>
 </article>
