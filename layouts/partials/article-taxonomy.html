@@ -4,9 +4,4 @@
       <a class="" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
     {{ end }}
   {{ end }}
-  {{ with .Params.tags }}
-      {{ range . }}
-        <a class="" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
-  {{ end }}
 </p>

@@ -1,10 +1,14 @@
-<article class="">
+<article class="article">
   <header>
-    <time>{{ .Date.Format "January _2, 2006" }}</time>
     <h1>{{ .Title }}</h1>
   </header>
+  <time class="date">{{ .Date.Format "January _2, 2006" }}</time>
+  <!-- Add Taxonomy Here -->
+  {{ partial "article-taxonomy" . }}
   <div class="content">
+    {{ partial "featured-image" . }}
     {{ .Content }}
+    {{ partial "gallery" . }}
   </div>
   <footer>
     {{ partial "share_buttons" . }}

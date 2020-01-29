@@ -1,10 +1,23 @@
-<a class="article article-summary-link {{- if .Page.Params.images }} has-thumbnail {{ end -}}" href="{{ .Permalink }}" tabindex="0">
-  <span>
-    {{ partial "thumbnail" . }}
-    <p class="h2">{{ .Page.Title }}</p>
-    <p class="time">{{ .Date.Format "January _2, 2006" }}</p>
-    <p class="summary-text">
+{{/*
+  Used in recent posts and related posts
+  */}}
+<a 
+  class="article-summary-link {{- if .Page.Params.images }} has-thumbnail {{ end -}}" 
+  href="{{ .Permalink }}" 
+  tabindex="0"
+  >
+  <article
+  class="article article-summary {{ if .Params.images }} has-thumbnail {{ end }}"
+  tabindex="0"
+  role="article"
+  >
+    {{ partial "thumbnail-only" . }}
+    <header>
+      {{ .Page.Title }}
+    </header>
+    <time>{{ .Date.Format "January _2, 2006" }}</time>
+    <div class="summary-text">
       {{ .Summary }}
-    </p>
-  </span>
+    </div>
+  </article>
 </a>
