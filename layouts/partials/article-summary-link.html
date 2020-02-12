@@ -1,6 +1,3 @@
-{{/*
-  Used in recent posts and related posts
-  */}}
 <a 
   class="article-summary-link {{- if .Page.Params.images }} has-thumbnail {{ end -}}" 
   href="{{ .Permalink }}" 
@@ -16,6 +13,22 @@
       {{ .Page.Title }}
     </header>
     <time>{{ .Date.Format "January _2, 2006" }}</time>
+    <div class="categories">
+      <span>Categories:</span>
+      {{ with .Params.categories }}
+        {{ range . }}
+         {{ . }}, 
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="tags">
+      <span>Tags:</span>
+      {{ with .Params.tags }}
+        {{ range . }}
+          {{ . }}
+        {{ end }}
+      {{ end }}
+    </div>
     <div class="summary-text">
       {{ .Summary }}
     </div>

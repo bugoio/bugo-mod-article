@@ -2,7 +2,7 @@
 {{ with $posts }}
 <div class="widget widget-related-posts">
   {{ range first 1 . }}
-  {{ partial "article-summary-tiny" . }}
+  {{ partial "article-summary" . }}
   {{ end }}
 </div>
 {{ end }}

@@ -4,11 +4,16 @@
   </header>
   <time class="date">{{ .Date.Format "January _2, 2006" }}</time>
   <!-- Add Taxonomy Here -->
-  {{ partial "article-taxonomy" . }}
+  {{ partial "article-categories" . }}
+  {{ partial "article-tags" . }}
   <div class="content">
-    {{ partial "featured-image" . }}
+    {{ if .Site.Params.enableAutoFeaturedImage }}
+      {{ partial "featured-image" . }}
+    {{ end }}
     {{ .Content }}
-    {{ partial "gallery" . }}
+    {{ if .Site.Params.enableAutoGallery }}
+      {{ partial "gallery" . }}
+    {{ end }}
   </div>
   <footer>
     {{ partial "share_buttons" . }}

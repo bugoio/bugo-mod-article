@@ -3,7 +3,7 @@
 <div class="widget widget-recent-posts-small">
   <h4 class="h5">Recent Posts</h4>
   {{ range first 3 . }}
-  {{ partial "article-summary-tiny" . }}
+  {{ partial "article-summary" . }}
   {{ end }}
 </div>
 {{ end }}
