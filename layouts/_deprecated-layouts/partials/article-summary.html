@@ -1,5 +1,5 @@
 <article
-  class="article article-summary {{ if .Params.images }} has-thumbnail {{ end }}"
+  class="article-summary {{ if .Params.images }} has-thumbnail {{ end }}"
   tabindex="0"
   role="article"
 
@@ -15,6 +15,7 @@
         >
       </h3>
     </header>
+    {{ partial "article-taxonomy" . }}
     <p class="summary-text">
       {{ .Summary }}
     </p>

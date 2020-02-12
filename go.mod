@@ -2,4 +2,7 @@ module github.com/bugoio/bugo-mod-article
 
 go 1.12
 
-require github.com/bugoio/bugo-sass-utilities v0.0.0-20191018023647-0458624bff72 // indirect
+require (
+	github.com/bugoio/bugo-mod-columns v0.0.1 // indirect
+	github.com/bugoio/bugo-mod-navigation v0.0.1 // indirect
+)
