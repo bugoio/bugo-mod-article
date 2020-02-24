@@ -7,7 +7,7 @@
   {{ partial "article-categories" . }}
   {{ partial "article-tags" . }}
   <div class="content">
-    {{ if .Site.Params.enableAutoFeaturedImage }}
+    {{ if and .Site.Params.enableAutoFeaturedImage .Params.images }}
       {{ partial "featured-image" . }}
     {{ end }}
     {{ .Content }}
