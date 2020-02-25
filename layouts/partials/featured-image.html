@@ -1,6 +1,8 @@
 <!-- featured image -->
+{{ with index .Params.Images 0 }}
 <figure class="featured-image">
   <div class="responsive-image">
-    <img src="{{ index .Params.Images 0 }}" alt=""/>
+    <img src="{{ . }}" alt=""/>
   </div>
 </figure>
+{{ end }}
